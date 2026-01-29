@@ -1,134 +1,57 @@
-AI Call Agent – Error Recovery & Resilience System
-🚀 Features
+##AI Call Agent – Error Recovery & Resilience System##
 
-Error Categorization – Differentiates between Transient and Permanent errors using a custom exception hierarchy (TransientServiceError, PermanentServiceError)
+A robust AI Call Agent simulation with advanced error handling, retry mechanisms, circuit breaker patterns, logging, alerting, and health checks.
+Ensures that failures in external services (e.g., ElevenLabs TTS, LLMs, CRM APIs) do not block the system.
 
-Retry Logic with Exponential Backoff – Configurable retries, initial delay, and backoff factor; retries only for transient errors
+##🚀 Features##
 
-Circuit Breaker Pattern – Tracks failures per service with Closed, Open, and Half-Open states
+-Error Categorization – Differentiates between Transient and Permanent errors using a custom exception hierarchy:
+TransientServiceError, PermanentServiceError
 
-Logging & Observability – Structured logs with timestamp, service, error type, retry count, and circuit state; supports Google Sheets logging
+-Retry Logic with Exponential Backoff – Configurable max_retries, initial_delay, backoff_factor. Retries apply only for transient errors
 
-Alerts for Critical Failures – Sends alerts via Webhook, Email, and Telegram when permanent failures occur or circuit breaker opens
+-Circuit Breaker Pattern – Tracks failures per service with Closed, Open, and Half-Open states. Configurable failure threshold and recovery timeout
 
-Health Checks – Periodic background checks on service health; resets circuit breaker on recovery
+-Logging & Observability – Structured logs with timestamp, service, error type, retry count, and circuit state. Supports logging to Google Sheets
 
-Graceful Degradation – Skips failed calls and continues processing next contacts; avoids blocking the system
+-Alerts for Critical Failures – Sends alerts via Webhook, Email, and Telegram for permanent failures or circuit breaker openings
 
-🛠️ Tech Stack
+-Health Checks – Periodic background checks on service health, resets circuit breaker when service recovers
 
-Python 3.11+ – Core language
+-Graceful Degradation – Skips failed calls and continues processing the next contact, avoiding full system blockage
 
-Flask – (Optional for API integrations / simulations)
+##🛠️ Tech Stack##
 
-Google Sheets API – For logging to sheets
+-Language: Python 3.11+
 
-This project simulates an AI Call Agent that interacts with multiple external services (e.g., ElevenLabs TTS, LLMs, CRM APIs).
-It is designed with robust error handling, retries, circuit breakers, logging, alerting, and health checks to ensure that service failures do not cascade and the system continues to operate gracefully.
+-Framework: Flask 
 
-Features
+-Logging: Google Sheets API
 
-Error Categorization
+-Other Modules: Threading, Requests, etc.
 
-Differentiates between:
+##⚙️ Configuration##
+# Retry configuration
+```
+RETRY_CONFIG = {
+    "max_retries": 3,
+    "initial_delay": 5,
+    "backoff_factor": 2
+}
 
-Transient errors (e.g., 503 Service Unavailable, network timeouts)
+# Circuit breaker configuration
+CIRCUIT_BREAKER_CONFIG = {
+    "failure_threshold": 2,
+    "recovery_timeout": 10  # seconds
+}
 
-Permanent errors (e.g., 401 Unauthorized, invalid payload)
-
-Custom exception hierarchy:
-
-TransientServiceError
-
-PermanentServiceError
-
-Retry Logic with Exponential Backoff
-
-Configurable parameters:
-
-Maximum retries
-
-Initial delay
-
-Backoff factor
-
-Retries apply only to transient errors
-
-Retry attempts are logged with retry count and circuit breaker state
-
-Circuit Breaker Pattern
-
-One circuit breaker per external service
-
-Configurable parameters:
-
-Failure threshold
-
-Recovery timeout
-
-States:
-
-Closed: normal operation
-
-Open: fail-fast, requests blocked
-
-Half-Open: testing recovery after timeout
-
-Circuit breaker updates automatically based on success/failure of service calls
-
-Logging & Observability
-
-Logs structured events locally and optionally to Google Sheets
-
-Includes:
-
-Timestamp
-
-Service name
-
-Error category
-
-Retry count
-
-Circuit breaker state
-
-Alerts for Critical Failures
-
-Alerts are triggered for:
-
-Permanent service failures
-
-Circuit breaker opening after repeated transient failures
-
-Supported channels:
-
-Email
-
-Telegram
-
-Webhook (HTTP endpoint)
-
-Health Checks
-
-Background health checker monitors services periodically
-
-Detects recovery and resets circuit breaker when service is healthy
-
-Prevents stale failures from blocking operations indefinitely
-
-Graceful Degradation
-
-If a service is unavailable:
-
-Skips current call
-
-Moves to next contact in the queue
-
-Avoids blocking the entire system
-
-Fallback behavior can be extended for alternate service paths
-
-Architecture
+# Health check interval
+HEALTH_CHECK_CONFIG = {
+    "interval": 5  # seconds
+}
+```
+##🏗️ Architecture ##
+```
 +-------------------------+
 | Call Queue              |
 | - Holds pending calls   |
@@ -164,116 +87,26 @@ Architecture
 |   service health        |
 | - Resets circuit breaker|
 +-------------------------+
+```
 
-Configuration
+##📜 Error Flow ##
 
-Retry parameters (config.py or simulate_ai_call_agent.py):
+-Transient Error → RetryHandler retries with exponential backoff
+Circuit breaker counts failure, logs retry attempts, triggers alert if retries fail
 
-RETRY_CONFIG = {
-    "max_retries": 3,
-    "initial_delay": 5,
-    "backoff_factor": 2
-}
+-Permanent Error → Alert triggered immediately, current call aborted, circuit breaker records failure
 
+##📈 Logging & Alerts ##
 
-Circuit breaker parameters:
+-Logs structured events locally and optionally to Google Sheets
 
-CIRCUIT_BREAKER_CONFIG = {
-    "failure_threshold": 2,
-    "recovery_timeout": 10  # seconds
-}
+-Includes: timestamp, level, service, message, retry_count, circuit_state
 
+-Alerts triggered via: Webhook, Email, Telegram
 
-Health check interval:
+Example Logs:
+```
 
-HEALTH_CHECK_CONFIG = {
-    "interval": 5  # seconds
-}
-
-Error Flow
-
-A call is sent to a service (e.g., text_to_speech)
-
-If service returns a TransientServiceError:
-
-RetryHandler retries with exponential backoff
-
-Circuit breaker counts failure
-
-Logs retry attempts
-
-If all retries fail:
-
-Alert is triggered
-
-Call is marked failed
-
-Circuit breaker may open if threshold exceeded
-
-If a PermanentServiceError occurs:
-
-Alert is triggered immediately
-
-Circuit breaker records failure
-
-Current call is aborted
-
-Circuit Breaker Behavior
-State	Behavior
-Closed	Normal operation, requests pass through
-Open	Requests blocked, fail-fast, logs warning
-Half-Open	Test requests allowed, transitions to Closed on success, Open on fail
-Health Check
-
-Runs periodically in a separate thread
-
-Checks if services are healthy
-
-Resets circuit breaker to Closed when service recovers
-
-Ensures system resumes processing pending calls
-
-Logging & Alerts
-
-Logs include:
-
-timestamp
-
-level (INFO, WARNING, ERROR, CRITICAL)
-
-service
-
-message
-
-retry_count
-
-circuit_state
-
-Alerts sent via:
-
-Webhook (generic)
-
-Email (configurable)
-
-Telegram (configurable)
-
-How to Run
-
-Simulation:
-
-python simulate_ai_call_agent.py
-
-
-Simulates transient failure → retries → circuit breaker → recovery
-
-Production-like run:
-
-python main.py
-
-
-Uses real service integration (mocked or real)
-
-Example Logs
 {
   "timestamp": "2026-01-29T18:17:19",
   "level": "ERROR",
@@ -298,8 +131,23 @@ Example Logs
   "retry_count": 1,
   "circuit_state": "CLOSED"
 }
+```
 
-Folder Structure
+##▶️ How to Run ##
+# Simulation mode
+```
+python simulate_ai_call_agent.py
+```
+# Simulates transient failures → retries → circuit breaker → recovery
+
+# Production-like run
+```
+python main.py
+```
+# Uses real or mocked service integrations
+
+##📁 Project Structure ##
+```
 ai-call-agent-resilience/
 ├── main.py
 ├── simulate_ai_call_agent.py
@@ -322,3 +170,17 @@ ai-call-agent-resilience/
 │   └── call_queue.py
 └── errors/
     └── exceptions.py
+```
+
+##⚙️ How It Works ##
+
+-Call Queue – Holds pending contacts
+
+-RetryHandler – Executes service calls; retries transient failures with exponential backoff
+
+-CircuitBreaker – Opens after repeated failures, blocks requests, half-opens after recovery timeout
+
+-HealthChecker – Monitors service health; resets circuit breaker when service recovers
+
+-Alerts – Sends notifications on permanent failures or circuit breaker opening
+
