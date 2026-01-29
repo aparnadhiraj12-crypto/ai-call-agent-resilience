@@ -122,6 +122,22 @@ Example Logs:
   "circuit_state": "CLOSED"
 }
 ```
+## 📸 Example Logs & Screenshots ##
+### Permanent Failure Alert ###
+Shows immediate alerting for a permanent service error (no retries).
+![Permanent Failure Alert](docs/screenshots/permanent_error_alert.png)
+
+### Structured Logging (Google Sheets / CSV) ###
+Demonstrates structured logs with service, error type, retry count, and circuit state.
+![Structured Logs](docs/screenshots/structured_logs.png)
+
+### Circuit Breaker & Retry Behavior ###
+Shows retries, failure tracking, and circuit breaker transitions.
+![Circuit Breaker and Retries](docs/screenshots/circuit_breaker_and_retries.png)
+
+### Retry Exhaustion → Circuit Open → Graceful Degradation ###
+Demonstrates retry exhaustion, circuit breaker opening, and skipping subsequent calls.
+![Retry Exhaustion and Circuit Open](docs/screenshots/retry_exhaust_circuit_open.png)
 
 ## ▶️ How to Run ##
 ### Simulation mode ###
