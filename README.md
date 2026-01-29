@@ -1,4 +1,4 @@
-## AI Call Agent – Error Recovery & Resilience System ##
+# AI Call Agent – Error Recovery & Resilience System 
 
 A robust AI Call Agent simulation with advanced error handling, retry mechanisms, circuit breaker patterns, logging, alerting, and health checks.
 Ensures that failures in external services (e.g., ElevenLabs TTS, LLMs, CRM APIs) do not block the system.
@@ -31,7 +31,7 @@ TransientServiceError, PermanentServiceError
 -Other Modules: Threading, Requests, etc.
 
 ## ⚙️ Configuration ##
-# Retry configuration
+# Retry configuration #
 ```
 RETRY_CONFIG = {
     "max_retries": 3,
@@ -96,7 +96,7 @@ Circuit breaker counts failure, logs retry attempts, triggers alert if retries f
 
 -Permanent Error → Alert triggered immediately, current call aborted, circuit breaker records failure
 
-##📈 Logging & Alerts ##
+## 📈 Logging & Alerts ##
 
 -Logs structured events locally and optionally to Google Sheets
 
@@ -134,17 +134,17 @@ Example Logs:
 ```
 
 ## ▶️ How to Run ##
-# Simulation mode
+# Simulation mode #
 ```
 python simulate_ai_call_agent.py
 ```
-# Simulates transient failures → retries → circuit breaker → recovery
+# Simulates transient failures → retries → circuit breaker → recovery #
 
-# Production-like run
+# Production-like run #
 ```
 python main.py
 ```
-# Uses real or mocked service integrations
+# Uses real or mocked service integrations #
 
 ## 📁 Project Structure ##
 ```
