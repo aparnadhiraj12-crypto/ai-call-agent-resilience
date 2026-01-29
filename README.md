@@ -1,5 +1,14 @@
-AI Call Agent – Error Recovery & Resilience System
-Project Overview
+SKILLVAULT
+
+🚀 Features
+Astro Framework - Modern static site generator with server-side rendering
+React Integration - Full React support with JSX components
+TypeScript - Type-safe development experience
+Tailwind CSS - Utility-first CSS framework with custom components
+Wix Integration - Seamless integration with Wix services and APIs
+Modern UI Components - Radix UI components with custom styling
+Authentication - Built-in member authentication and protected routes
+CMS Integration - Content management sy
 
 This project simulates an AI Call Agent that interacts with multiple external services (e.g., ElevenLabs TTS, LLMs, CRM APIs).
 It is designed with robust error handling, retries, circuit breakers, logging, alerting, and health checks to ensure that service failures do not cascade and the system continues to operate gracefully.
