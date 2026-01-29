@@ -1,9 +1,9 @@
-##AI Call Agent – Error Recovery & Resilience System##
+## AI Call Agent – Error Recovery & Resilience System ##
 
 A robust AI Call Agent simulation with advanced error handling, retry mechanisms, circuit breaker patterns, logging, alerting, and health checks.
 Ensures that failures in external services (e.g., ElevenLabs TTS, LLMs, CRM APIs) do not block the system.
 
-##🚀 Features##
+## 🚀 Features ##
 
 -Error Categorization – Differentiates between Transient and Permanent errors using a custom exception hierarchy:
 TransientServiceError, PermanentServiceError
@@ -20,7 +20,7 @@ TransientServiceError, PermanentServiceError
 
 -Graceful Degradation – Skips failed calls and continues processing the next contact, avoiding full system blockage
 
-##🛠️ Tech Stack##
+## 🛠️ Tech Stack ##
 
 -Language: Python 3.11+
 
@@ -30,7 +30,7 @@ TransientServiceError, PermanentServiceError
 
 -Other Modules: Threading, Requests, etc.
 
-##⚙️ Configuration##
+## ⚙️ Configuration ##
 # Retry configuration
 ```
 RETRY_CONFIG = {
@@ -50,7 +50,7 @@ HEALTH_CHECK_CONFIG = {
     "interval": 5  # seconds
 }
 ```
-##🏗️ Architecture ##
+## 🏗️ Architecture ##
 ```
 +-------------------------+
 | Call Queue              |
@@ -89,7 +89,7 @@ HEALTH_CHECK_CONFIG = {
 +-------------------------+
 ```
 
-##📜 Error Flow ##
+## 📜 Error Flow ##
 
 -Transient Error → RetryHandler retries with exponential backoff
 Circuit breaker counts failure, logs retry attempts, triggers alert if retries fail
@@ -133,7 +133,7 @@ Example Logs:
 }
 ```
 
-##▶️ How to Run ##
+## ▶️ How to Run ##
 # Simulation mode
 ```
 python simulate_ai_call_agent.py
@@ -146,7 +146,7 @@ python main.py
 ```
 # Uses real or mocked service integrations
 
-##📁 Project Structure ##
+## 📁 Project Structure ##
 ```
 ai-call-agent-resilience/
 ├── main.py
@@ -172,7 +172,7 @@ ai-call-agent-resilience/
     └── exceptions.py
 ```
 
-##⚙️ How It Works ##
+## ⚙️ How It Works ##
 
 -Call Queue – Holds pending contacts
 
