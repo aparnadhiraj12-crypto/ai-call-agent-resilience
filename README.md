@@ -31,7 +31,7 @@ TransientServiceError, PermanentServiceError
 -Other Modules: Threading, Requests, etc.
 
 ## ⚙️ Configuration ##
-# Retry configuration #
+### Retry configuration ###
 ```
 RETRY_CONFIG = {
     "max_retries": 3,
@@ -134,17 +134,17 @@ Example Logs:
 ```
 
 ## ▶️ How to Run ##
-# Simulation mode #
+### Simulation mode ###
 ```
 python simulate_ai_call_agent.py
 ```
-# Simulates transient failures → retries → circuit breaker → recovery #
+### Simulates transient failures → retries → circuit breaker → recovery ###
 
-# Production-like run #
+### Production-like run ###
 ```
 python main.py
 ```
-# Uses real or mocked service integrations #
+### Uses real or mocked service integrations ###
 
 ## 📁 Project Structure ##
 ```
