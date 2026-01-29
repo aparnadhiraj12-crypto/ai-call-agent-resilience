@@ -1,14 +1,27 @@
-SKILLVAULT
-
+AI Call Agent – Error Recovery & Resilience System
 🚀 Features
-Astro Framework - Modern static site generator with server-side rendering
-React Integration - Full React support with JSX components
-TypeScript - Type-safe development experience
-Tailwind CSS - Utility-first CSS framework with custom components
-Wix Integration - Seamless integration with Wix services and APIs
-Modern UI Components - Radix UI components with custom styling
-Authentication - Built-in member authentication and protected routes
-CMS Integration - Content management sy
+
+Error Categorization – Differentiates between Transient and Permanent errors using a custom exception hierarchy (TransientServiceError, PermanentServiceError)
+
+Retry Logic with Exponential Backoff – Configurable retries, initial delay, and backoff factor; retries only for transient errors
+
+Circuit Breaker Pattern – Tracks failures per service with Closed, Open, and Half-Open states
+
+Logging & Observability – Structured logs with timestamp, service, error type, retry count, and circuit state; supports Google Sheets logging
+
+Alerts for Critical Failures – Sends alerts via Webhook, Email, and Telegram when permanent failures occur or circuit breaker opens
+
+Health Checks – Periodic background checks on service health; resets circuit breaker on recovery
+
+Graceful Degradation – Skips failed calls and continues processing next contacts; avoids blocking the system
+
+🛠️ Tech Stack
+
+Python 3.11+ – Core language
+
+Flask – (Optional for API integrations / simulations)
+
+Google Sheets API – For logging to sheets
 
 This project simulates an AI Call Agent that interacts with multiple external services (e.g., ElevenLabs TTS, LLMs, CRM APIs).
 It is designed with robust error handling, retries, circuit breakers, logging, alerting, and health checks to ensure that service failures do not cascade and the system continues to operate gracefully.
