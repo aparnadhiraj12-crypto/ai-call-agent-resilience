@@ -1,5 +1,5 @@
-**AI Call Agent – Error Recovery & Resilience System
-Project Overview**
+AI Call Agent – Error Recovery & Resilience System
+Project Overview
 
 This project simulates an AI Call Agent that interacts with multiple external services (e.g., ElevenLabs TTS, LLMs, CRM APIs).
 It is designed with robust error handling, retries, circuit breakers, logging, alerting, and health checks to ensure that service failures do not cascade and the system continues to operate gracefully.
