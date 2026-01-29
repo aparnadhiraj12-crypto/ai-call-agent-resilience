@@ -1,0 +1,51 @@
+{"timestamp": "2026-01-29T16:39:59.429814", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:39:59.430650", "level": "CRITICAL", "service": "ElevenLabs", "message": "ElevenLabs authentication failed", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:50:23.485721", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:50:23.486669", "level": "WARNING", "service": "ElevenLabs", "message": "Retry 1/3 failed. Retrying in 5s...", "retry_count": 1, "circuit_state": null}
+{"timestamp": "2026-01-29T16:50:28.487802", "level": "WARNING", "service": "ElevenLabs", "message": "Retry 2/3 failed. Retrying in 10s...", "retry_count": 2, "circuit_state": null}
+{"timestamp": "2026-01-29T16:50:38.492260", "level": "ERROR", "service": "ElevenLabs", "message": "503 Service Unavailable", "retry_count": 3, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:50:40.495921", "level": "INFO", "service": "System", "message": "Processing call for Contact-2", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:50:40.497660", "level": "INFO", "service": "ElevenLabs", "message": "Call successful for Contact-2", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:50:42.499718", "level": "INFO", "service": "System", "message": "Processing call for Contact-3", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:50:42.501647", "level": "INFO", "service": "ElevenLabs", "message": "Call successful for Contact-3", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:52:38.393227", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:52:38.393838", "level": "WARNING", "service": "ElevenLabs", "message": "Retry 1/3 failed. Retrying in 5s...", "retry_count": 1, "circuit_state": null}
+{"timestamp": "2026-01-29T16:52:43.394815", "level": "WARNING", "service": "ElevenLabs", "message": "Retry 2/3 failed. Retrying in 10s...", "retry_count": 2, "circuit_state": null}
+{"timestamp": "2026-01-29T16:52:53.396414", "level": "ERROR", "service": "ElevenLabs", "message": "ElevenLabs 503 Service Unavailable", "retry_count": 3, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:52:55.399857", "level": "INFO", "service": "System", "message": "Processing call for Contact-2", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:52:55.403635", "level": "INFO", "service": "ElevenLabs", "message": "Call successful for Contact-2", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:52:57.406342", "level": "INFO", "service": "System", "message": "Processing call for Contact-3", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:52:57.415505", "level": "INFO", "service": "ElevenLabs", "message": "Call successful for Contact-3", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:52:59.420635", "level": "INFO", "service": "System", "message": "Processing call for Contact-4", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:52:59.424545", "level": "INFO", "service": "ElevenLabs", "message": "Call successful for Contact-4", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T16:59:48.801172", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T16:59:48.801785", "level": "CRITICAL", "service": "ElevenLabs", "message": "ElevenLabs authentication failed", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T17:12:47.013336", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T17:12:47.014048", "level": "WARNING", "service": "ElevenLabs", "message": "Retry 1/3 failed. Retrying in 5s...", "retry_count": 1, "circuit_state": null}
+{"timestamp": "2026-01-29T17:12:52.014915", "level": "CRITICAL", "service": "ElevenLabs", "message": "ElevenLabs authentication failed", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:03:10.122493", "level": "INFO", "service": "CallQueue", "message": "Processing next contact: Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:03:10.124736", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:11:56.104492", "level": "INFO", "service": "CallQueue", "message": "Processing next contact: Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:11:56.105741", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:15:54.417399", "level": "INFO", "service": "CallQueue", "message": "Processing next contact: Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:15:54.419288", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:17:19.762797", "level": "INFO", "service": "CallQueue", "message": "Processing next contact: Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:17:19.763841", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:17:19.764512", "level": "CRITICAL", "service": "ElevenLabs", "message": "ElevenLabs authentication failed", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:17:19.765315", "level": "CRITICAL", "service": "ElevenLabs", "message": "ALERT TRIGGERED: Permanent failure detected", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:18:48.474783", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:22:28.048927", "level": "INFO", "service": "System", "message": "Processing call for Contact-1", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:22:28.049653", "level": "WARNING", "service": "MockElevenLabsService", "message": "Retry 1/3 failed: 503 Service Unavailable. Retrying in 5s", "retry_count": 1, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:22:33.050814", "level": "WARNING", "service": "MockElevenLabsService", "message": "Retry 2/3 failed: 503 Service Unavailable. Retrying in 10s", "retry_count": 2, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:22:43.053543", "level": "WARNING", "service": "MockElevenLabsService", "message": "Retry 3/3 failed: 503 Service Unavailable. Retrying in 20s", "retry_count": 3, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:22:43.057322", "level": "ERROR", "service": "MockElevenLabsService", "message": "All retries exhausted. Raising error.", "retry_count": 3, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:22:43.061037", "level": "WARNING", "service": "ElevenLabs", "message": "Failure recorded (1/2)", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:22:43.063588", "level": "ERROR", "service": "ElevenLabs", "message": "503 Service Unavailable", "retry_count": 3, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:22:43.065609", "level": "CRITICAL", "service": "ElevenLabs", "message": "ALERT TRIGGERED: Transient failure, retries exhausted", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:22:43.068648", "level": "WARNING", "service": "ElevenLabs", "message": "Failure recorded (2/2)", "retry_count": null, "circuit_state": "CLOSED"}
+{"timestamp": "2026-01-29T18:22:43.071854", "level": "CRITICAL", "service": "ElevenLabs", "message": "Circuit breaker OPEN \u2014 service marked unhealthy", "retry_count": null, "circuit_state": "OPEN"}
+{"timestamp": "2026-01-29T18:22:43.075028", "level": "CRITICAL", "service": "ElevenLabs", "message": "ALERT TRIGGERED: Circuit breaker OPEN \u2014 service unhealthy", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:22:45.079077", "level": "INFO", "service": "System", "message": "Processing call for Contact-2", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:22:45.080597", "level": "WARNING", "service": "ElevenLabs", "message": "Circuit OPEN. Skipping call.", "retry_count": null, "circuit_state": "OPEN"}
+{"timestamp": "2026-01-29T18:22:45.081588", "level": "INFO", "service": "System", "message": "Processing call for Contact-3", "retry_count": null, "circuit_state": null}
+{"timestamp": "2026-01-29T18:22:45.082710", "level": "WARNING", "service": "ElevenLabs", "message": "Circuit OPEN. Skipping call.", "retry_count": null, "circuit_state": "OPEN"}
