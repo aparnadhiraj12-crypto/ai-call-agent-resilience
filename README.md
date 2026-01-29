@@ -7,27 +7,18 @@ Ensures that failures in external services (e.g., ElevenLabs TTS, LLMs, CRM APIs
 
 -Error Categorization – Differentiates between Transient and Permanent errors using a custom exception hierarchy:
 TransientServiceError, PermanentServiceError
-
 -Retry Logic with Exponential Backoff – Configurable max_retries, initial_delay, backoff_factor. Retries apply only for transient errors
-
 -Circuit Breaker Pattern – Tracks failures per service with Closed, Open, and Half-Open states. Configurable failure threshold and recovery timeout
-
 -Logging & Observability – Structured logs with timestamp, service, error type, retry count, and circuit state. Supports logging to Google Sheets
-
 -Alerts for Critical Failures – Sends alerts via Webhook, Email, and Telegram for permanent failures or circuit breaker openings
-
 -Health Checks – Periodic background checks on service health, resets circuit breaker when service recovers
-
 -Graceful Degradation – Skips failed calls and continues processing the next contact, avoiding full system blockage
 
 ## 🛠️ Tech Stack ##
 
 -Language: Python 3.11+
-
 -Framework: Flask 
-
 -Logging: Google Sheets API
-
 -Other Modules: Threading, Requests, etc.
 
 ## ⚙️ Configuration ##
@@ -93,16 +84,15 @@ HEALTH_CHECK_CONFIG = {
 
 -Transient Error → RetryHandler retries with exponential backoff
 Circuit breaker counts failure, logs retry attempts, triggers alert if retries fail
-
 -Permanent Error → Alert triggered immediately, current call aborted, circuit breaker records failure
 
 ## 📈 Logging & Alerts ##
 
--Logs structured events locally and optionally to Google Sheets
+Alerts are triggered when:
+- A permanent service error occurs
+- Retry attempts are exhausted for a transient error
+- Circuit breaker transitions to OPEN state
 
--Includes: timestamp, level, service, message, retry_count, circuit_state
-
--Alerts triggered via: Webhook, Email, Telegram
 
 Example Logs:
 ```
@@ -175,9 +165,7 @@ ai-call-agent-resilience/
 ## ⚙️ How It Works ##
 
 -Call Queue – Holds pending contacts
-
 -RetryHandler – Executes service calls; retries transient failures with exponential backoff
-
 -CircuitBreaker – Opens after repeated failures, blocks requests, half-opens after recovery timeout
 
 -HealthChecker – Monitors service health; resets circuit breaker when service recovers
